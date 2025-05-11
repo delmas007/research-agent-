@@ -1,17 +1,24 @@
-research_task:
+task_recherche:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Effectue une recherche approfondie et précise sur le sujet : {topic}.
+    Trouve des informations fiables, actuelles et pertinentes, incluant des sources ou données marquantes si possible.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    Une liste claire de 10 à 15 points clés sur {topic}, incluant toute information utile trouvée en ligne.
+  agent: agent_recherche
 
-reporting_task:
+task_redaction:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Rédige un rapport structuré et fluide à partir des résultats de recherche précédents.
+    Organise les idées en sections logiques et assure-toi que le contenu soit clair et complet.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    Un rapport complet présentant les principaux sujets, chacun accompagné d'une section d'information complète.
+    Formaté en Markdown sans '```'
+  agent: agent_redaction
+
+task_revision:
+  description: >
+    Relis et améliore le contenu du rapport.
+    Corrige les fautes, clarifie les formulations, et assure-toi de la cohérence et de la fluidité.
+  expected_output: >
+    Une version finale propre du rapport Markdown, prête à être exportée.
+  agent: agent_reviseur

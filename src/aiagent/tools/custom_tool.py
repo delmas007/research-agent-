@@ -1,5 +1,5 @@
 from crewai.tools import BaseTool
-from typing import Type
+from typing import Type, Optional
 from pydantic import BaseModel, Field
 
 
@@ -17,3 +17,18 @@ class MyCustomTool(BaseTool):
     def _run(self, argument: str) -> str:
         # Implementation goes here
         return "this is an example of a tool output, ignore it and move along."
+
+
+class ExportMarkdownPDF(BaseTool):
+    name: str = Field(default="ExportMarkdownPDF", description="Nom de l'outil")
+    description: str = Field(default="Convertit un texte Markdown en PDF")
+
+    def _run(self, markdown_text: str, output_path: Optional[str] = "report.pdf") -> str:
+        import markdown
+        from weasyprint import HTML
+
+        html_content = markdown.markdown(markdown_text)
+
+        HTML(string=html_content).write_pdf(output_path)
+
+        return f"PDF généré à : {output_path}"
