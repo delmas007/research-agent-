@@ -5,7 +5,11 @@ description = "aiAgent using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "crewai[tools]>=0.108.0,<1.0.0"
+    "crewai[tools]>=0.108.0,<1.0.0",
+    "flask>=3.1.0",
+    "flask-cors>=5.0.1",
+    "markdown>=3.8",
+    "weasyprint>=65.1",
 ]
 
 [project.scripts]
